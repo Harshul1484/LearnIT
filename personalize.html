@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personalize Lesson – Learn Your Way</title>
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- JavaScript -->
+    <script src="personalize.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HERO SECTION (Simplified) -->
+    <section class="hero" style="padding: 40px 8%; min-height: auto;">
+        <div class="hero-text" style="width: 100%;">
+            <h1>Personalize Your Learning</h1>
+            <p>Tell us a bit about yourself to get a custom lesson.</p>
+        </div>
+    </section>
+
+    <div class="personalize-container">
+
+        <div class="topic-display">
+            Selected Topic: <span id="selected-topic-name">Loading...</span>
+        </div>
+
+        <form id="personalize-form">
+            <div class="form-group">
+                <label for="grade-input">What grade are you in?</label>
+                <input type="text" id="grade-input" placeholder="e.g., 10th Grade, University, etc." required />
+            </div>
+
+            <div class="form-group">
+                <label for="interests-input">What are your interests?</label>
+                <textarea id="interests-input" rows="4" placeholder="e.g., Football, Music, Coding, etc."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="generate-btn">Generate Lesson</button>
+        </form>
+
+        <div id="loading-spinner" class="hidden">
+            <div class="spinner"></div>
+            <p>Generating your personalized lesson...</p>
+        </div>
+
+        <div id="result-container" class="hidden">
+            <h2>Your Personalized Lesson</h2>
+            <div id="api-response-content"></div>
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'" style="margin-top: 20px;">Back
+                to Topics</button>
+        </div>
+
+    </div>
+
+    <footer>
+        Privacy & Terms
+    </footer>
+
+</body>
+
+</html>
