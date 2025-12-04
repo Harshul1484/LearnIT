@@ -87,6 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let line = lines[i];
             let trimmed = line.trim();
 
+            // Skip lines that are just "$3" (placeholder)
+            if (trimmed === '$3') {
+                continue;
+            }
+
             // Check if line is standalone bold text (e.g., "**Quick Check:**" or "**Answer:**")
             if (trimmed.match(/^\*\*[^*]+\*\*:?$/)) {
                 // Convert to H2
@@ -95,6 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Remove all bold formatting from this line
                 let cleaned = line.replace(/\*\*/g, '');
+
+                // Remove [maps to: Orig §X] references from headings
+                cleaned = cleaned.replace(/\s*\[maps to:.*?\]\s*/g, '');
+
                 formatted.push(cleaned);
             }
         }
